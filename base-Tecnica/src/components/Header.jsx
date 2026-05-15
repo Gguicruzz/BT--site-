@@ -2,6 +2,7 @@ import { Phone } from 'lucide-react'
 
 const navItems = [
   ['Soluções', '#sobre'],
+  ['Portfólio', '#portfolio'],
   ['Serviços', '#servicos'],
   ['Contato', '#contato'],
 ]
