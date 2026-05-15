@@ -10,7 +10,7 @@ function Hero() {
   return (
     <section id="topo" className="relative min-h-screen px-5 pb-16 pt-28 sm:px-8 lg:px-12">
       <div className="stage-grid pointer-events-none absolute inset-0 opacity-50" />
-      <div className="beam pointer-events-none absolute left-1/2 top-24 h-64 w-[44rem] -translate-x-1/2 rotate-[-10deg] opacity-70" />
+      <div className="beam pointer-events-none absolute left-1/2 top-24 h-64  translate-x-1/2 rotate-[-10deg] opacity-70" />
 
       <div className="relative z-10 mx-auto max-w-7xl pt-8 lg:pt-16">
         <div className="reveal max-w-5xl">
@@ -30,7 +30,7 @@ function Hero() {
 
           <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
             {stats.map(([value, label]) => (
-              <div key={label} className="rounded-md border border-white/10 bg-white/[0.04] p-4">
+              <div key={label} className="rounded-md border border-white/10  p-4">
                 <strong className="block text-3xl font-black text-white">{value}</strong>
                 <span className="mt-1 block text-sm leading-5 text-zinc-400">{label}</span>
               </div>
