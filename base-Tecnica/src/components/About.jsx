@@ -34,7 +34,7 @@ function About() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             {featuredEvents.map((event, index) => (
-              <article key={event} className="rounded-lg border border-white/10 bg-white/[0.04] p-6">
+              <article key={event} className="reveal rounded-lg border border-white/10 bg-white/[0.04] p-6">
                 <span className="text-sm font-black text-base-red-bright">0{index + 1}</span>
                 <h3 className="mt-8 text-xl font-black text-white">{event}</h3>
                 <p className="mt-4 text-sm leading-6 text-zinc-400">
@@ -69,16 +69,22 @@ function About() {
           </div>
         </div>
 
-        <div className="reveal mt-16 rounded-lg bg-white px-6 py-8 text-black sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <div
+          id="parceiros"
+          className="reveal mt-16 scroll-mt-28 overflow-hidden rounded-md border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.035))] px-6 py-8 text-white shadow-2xl shadow-black/30 sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10"
+        >
           <div>
-            <span className="text-sm font-black uppercase text-base-red">Casas parceiras</span>
+            <span className="text-sm font-black uppercase text-base-red-bright">Casas parceiras</span>
             <h3 className="mt-3 max-w-2xl text-2xl font-black tracking-normal sm:text-4xl">
               Estrutura pronta para diferentes tipos de espaço.
             </h3>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-300">
+              Um kit técnico pensado para adaptar rápido, sem deixar o espaço com cara de improviso.
+            </p>
           </div>
           <div className="mt-8 flex max-w-2xl flex-wrap gap-3 lg:mt-0">
             {venues.map((venue) => (
-              <span key={venue} className="rounded-md border border-zinc-200 px-4 py-2 text-sm font-bold text-zinc-800">
+              <span key={venue} className="rounded-full border border-white/15 bg-black/25 px-4 py-2 text-sm font-bold text-zinc-100">
                 {venue}
               </span>
             ))}

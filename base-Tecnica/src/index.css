@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-base-red: #a80f08;
   --color-base-red-bright: #e22318;
   --color-base-ink: #050505;
@@ -23,4 +23,283 @@ body {
   background: #050505;
   color: #f8f8f8;
   font-family: Inter, sans-serif;
+}
+
+.header-texture {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.82)),
+    radial-gradient(circle at 22% 0%, rgba(227, 35, 24, 0.18), transparent 26%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 38%);
+}
+
+.stage-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 76%);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(168, 15, 8, 0.28), transparent 34%),
+    radial-gradient(circle at 72% 16%, rgba(255, 255, 255, 0.1), transparent 28%);
+}
+
+.beam {
+  width: 32rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  filter: blur(18px);
+  animation: beam-slide 8s ease-in-out infinite alternate;
+}
+
+.reveal {
+  animation: reveal-up 850ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.highlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  transform: translateX(-130%);
+  animation: card-shine 4.8s ease-in-out infinite;
+}
+
+.event-visual {
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 28% 38%, rgba(227, 35, 24, 0.28), transparent 30%),
+    linear-gradient(180deg, #151515, #050505 72%);
+}
+
+.event-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.event-visual__beam {
+  position: absolute;
+  top: -8%;
+  width: 9rem;
+  height: 32rem;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.28), transparent);
+  filter: blur(16px);
+  transform-origin: top;
+  animation: spotlight 5.4s ease-in-out infinite alternate;
+}
+
+.event-visual__beam--one {
+  left: 24%;
+  transform: rotate(22deg);
+}
+
+.event-visual__beam--two {
+  right: 20%;
+  animation-delay: 1.2s;
+  transform: rotate(-20deg);
+}
+
+.event-visual__stage {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 34%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  perspective: 600px;
+}
+
+.event-visual__stage span {
+  min-height: 5.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  transform: rotateX(54deg);
+  animation: equalizer 2.8s ease-in-out infinite alternate;
+}
+
+.event-visual__stage span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.event-visual__stage span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.event-visual__stage span:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.event-visual__panel {
+  position: absolute;
+  top: 16%;
+  right: 8%;
+  display: grid;
+  width: min(72%, 22rem);
+  gap: 0.65rem;
+}
+
+.event-visual__panel div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.42);
+  padding: 0.8rem 1rem;
+  backdrop-filter: blur(16px);
+}
+
+.event-visual__panel strong {
+  color: white;
+  font-size: 0.95rem;
+}
+
+.event-visual__panel span {
+  color: #d4d4d8;
+  font-size: 0.78rem;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes beam-slide {
+  from {
+    transform: translateX(5%) rotate(-12deg);
+  }
+
+  to {
+    transform: translateX(-10%) rotate(-8deg);
+  }
+}
+
+@keyframes card-shine {
+  0%,
+  52% {
+    transform: translateX(-130%);
+  }
+
+  75%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes spotlight {
+  from {
+    opacity: 0.46;
+    transform: rotate(18deg) translateX(-10px);
+  }
+
+  to {
+    opacity: 0.78;
+    transform: rotate(-14deg) translateX(12px);
+  }
+}
+
+@keyframes equalizer {
+  from {
+    transform: rotateX(54deg) translateY(0);
+    opacity: 0.7;
+  }
+
+  to {
+    transform: rotateX(54deg) translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .beam,
+  .highlight-card::before,
+  .event-visual__beam,
+  .event-visual__stage span {
+    animation: none;
+  }
+}
+
+.equipment-panel {
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 0.5rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(227, 35, 24, 0.22), transparent 34%),
+    rgba(0, 0, 0, 0.34);
+  transition:
+    max-height 500ms ease,
+    opacity 350ms ease,
+    margin-top 350ms ease,
+    border-color 350ms ease;
+}
+
+.equipment-panel.is-open {
+  max-height: 120px;
+  margin-top: 1.5rem;
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+
+.equipment-track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  animation: equipment-slide 16s linear infinite;
+}
+
+.equipment-track span {
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.45rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  padding: 0.65rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+@keyframes equipment-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
